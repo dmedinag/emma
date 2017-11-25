@@ -1,0 +1,198 @@
+{
+  "languageModel": {
+    "types": [
+      {
+        "name": "action",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "use Fairy",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "do the dishes",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "use Ariel",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "do the laundry",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "use heads and shoulders",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "wash my hair",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "put my teeth set on",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "use Kukident",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "mop",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "pass the mop",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "use mister Clean",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "use Olay",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "shave",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "shave my beard",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "change diapers",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "use ambipur",
+              "synonyms": []
+            }
+          }
+        ]
+      },
+      {
+        "name": "product",
+        "values": [
+          {
+            "id": null,
+            "name": {
+              "value": "heads and shoulders",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "mister clean",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "ariel",
+              "synonyms": []
+            }
+          },
+          {
+            "id": null,
+            "name": {
+              "value": "Braun",
+              "synonyms": []
+            }
+          }
+        ]
+      }
+    ],
+    "intents": [
+      {
+        "name": "AMAZON.CancelIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.HelpIntent",
+        "samples": []
+      },
+      {
+        "name": "AMAZON.StopIntent",
+        "samples": []
+      },
+      {
+        "name": "going_to_intent",
+        "samples": [
+          "I'm going to {action}",
+          "help me {action}"
+        ],
+        "slots": [
+          {
+            "name": "action",
+            "type": "action"
+          }
+        ]
+      },
+      {
+        "name": "how_to_intent",
+        "samples": [
+          "how can I use",
+          "how do I use {product}",
+          "i have no idea how to use {product}"
+        ],
+        "slots": [
+          {
+            "name": "product",
+            "type": "product"
+          }
+        ]
+      }
+    ],
+    "invocationName": "emma"
+  }
+}

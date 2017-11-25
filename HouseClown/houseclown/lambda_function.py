@@ -1,5 +1,6 @@
 import logging
 import traceback
+from .config import fixed_answers
 
 logging.basicConfig(level=logging.DEBUG)
 
@@ -50,8 +51,7 @@ def get_slot(intent, key):
 def get_welcome_response():
     session_attributes = {}
     card_title = "Welcome"
-    speech_output = "Welcome to House Clown. " \
-                    "I'm here to please you."
+    speech_output = "Hi, I'm Emma. I'm here for you."
     reprompt_text = "Please tell me what can I help you with."
     should_end_session = False
 
@@ -60,13 +60,16 @@ def get_welcome_response():
 
 def handle_session_end_request():
     card_title = "Session Ended"
-    speech_output = "Thank you for using the House Clown. Have a bright one!"
+    speech_output = "Thank you! Have a bright one!"
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
     return build_response({}, build_speechlet_response(
         card_title, speech_output, None, should_end_session))
 
 def entertain(intent, session):
+
+    intent_name = intent['name']
+    intent_samples = fixed_answers[intent_name]
 
     action = get_slot(intent, 'action')
 
@@ -79,11 +82,23 @@ def entertain(intent, session):
     should_end_session  = False
 
     try:
-        if action is None:
-            raise ValueError('Sorry, but I don\'t know what you\'re about to do.')
+        valid = None
+        for possibility in intent_samples:
+            try:
+                for k, v in possibility['values'].items():
+                    given = get_slot(intent, k)
+                    if v is None or given is None:
+                        continue
+                    if v.lower() != given.lower():
+                        raise KeyError
+                valid = possibility
+            except KeyError:
+                continue
 
-        logging.debug('entertain: valid parameters')
-        speech_output = 'Is this fun? I can do more than this'
+        if valid:
+            speech_output = valid['expected_response']
+        else:
+            raise ValueError('Maybe we can rephrase that a bit')
 
     except ValueError as e:
         logging.error('Failed to handle request: ' + str(e))
@@ -129,7 +144,7 @@ def on_intent(intent_request, session):
     intent_name = intent_request['intent']['name']
 
     # Dispatch to your skill's intent handlers
-    if intent_name == 'entertainment':
+    if intent_name in fixed_answers.keys():
         return entertain(intent, session)
     elif intent_name == "AMAZON.HelpIntent":
         return get_welcome_response()
