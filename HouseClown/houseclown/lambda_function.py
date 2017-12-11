@@ -79,7 +79,7 @@ def entertain(intent, session):
     title               = 'Providing some fun'
     speech_output       = 'I need to know what you\'re doing'
     reprompt_text       = 'What is it you\'re going to do?'
-    should_end_session  = False
+    should_end_session  = True
 
     try:
         valid = None
