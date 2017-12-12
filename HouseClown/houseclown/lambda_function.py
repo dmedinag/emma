@@ -72,8 +72,9 @@ def entertain(intent, session):
     intent_samples = fixed_answers[intent_name]
 
     action = get_slot(intent, 'action')
+    product = get_slot(intent, 'product')
 
-    logging.info('entertain: action={}'.format(action))
+    logging.info('entertain: action={}, product={}'.format(action, product))
 
     session_attributes  = {}
     title               = 'Providing some fun'
