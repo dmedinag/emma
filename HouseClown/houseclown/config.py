@@ -1,10 +1,10 @@
 fixed_answers = {
     'how_to': [
         {'values': {'product': 'mister proper'}, 'expected_response': 'Two cups per 5 litres of water should do it!'},
-        {'values': {'product': 'Braun'}, 'expected_response': 'Ok. First of all, plug the trimmer to the electric current. Secondly, turn it on by pressing the upper bottom. Finally, adjust velocities.'}
+        {'values': {'product': 'Braun'}, 'expected_response': 'First of all, plug the trimmer to the electric current. Secondly, turn it on by pressing the upper bottom. You can additionally adjust the velocity.'}
     ],
     'earn_prize': [
-        {'values': {}, 'expected_response': 'May I suggest using Pantene clarifying shampoo? By the way congratulations you have won a 20% discount for this product thanks to using Emma. Check your email for information on how to redeem it.'}
+        {'values': {}, 'expected_response': 'May I suggest using Pantene clarifying shampoo? Check your email for a 20% discount thanks to using Emma.'}
     ],
     'going_to': [
         {'values': {'action': 'use Ariel'}, 'expected_response':  'Laundry is the only thing that should be separated by color'},
